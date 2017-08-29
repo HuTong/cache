@@ -23,7 +23,7 @@ class Redis implements Contract
 
         if(isset($this->config['db']) && $this->config['db'])
         {
-            $this->container->select($this->config['dbindex']);
+            $this->container->select($this->config['db']);
         }
 
         $this->setPrefix($this->config['prefix'] ?: 'default');
