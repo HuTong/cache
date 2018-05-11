@@ -37,9 +37,9 @@ class File implements Contract
         return (bool)file_put_contents($path, $content);
     }
 
-    public function expire($key, $seconds)
+    public function expire($key, $expires, $type = 0)
     {
-        $seconds = (int)$seconds;
+        $seconds = $type ? (int)$expires * 60 : $expires;
 
         $path = $this->getkeyPath($key);
 

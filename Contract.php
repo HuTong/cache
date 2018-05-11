@@ -28,13 +28,14 @@ interface Contract
     /**
      * 设置key的过期时间
      * @param  string $key [description]
-     * @param  int $seconds [description]
+     * @param  int $expire [description]
+     * @param  int $type 0 按分钟1按秒
      * @return boolval
      *
      * @author hutong
      * @date   2018-05-11
      */
-    public function expire($key, $seconds);
+    public function expire($key, $expires, $type = 0);
 
     /**
      * 删除缓存
