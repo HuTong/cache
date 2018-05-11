@@ -26,6 +26,17 @@ interface Contract
     public function set($key, $val, $expires);
 
     /**
+     * 设置key的过期时间
+     * @param  string $key [description]
+     * @param  int $seconds [description]
+     * @return boolval
+     *
+     * @author hutong
+     * @date   2018-05-11
+     */
+    public function expire($key, $seconds);
+
+    /**
      * 删除缓存
      * @param  string $key
      * @return boolval

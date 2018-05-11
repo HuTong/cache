@@ -37,6 +37,31 @@ class File implements Contract
         return (bool)file_put_contents($path, $content);
     }
 
+    public function expire($key, $seconds)
+    {
+        $seconds = (int)$seconds;
+
+        $path = $this->getkeyPath($key);
+
+        if (!is_file($path))
+        {
+            return false;
+        }
+
+        $content = $this->getContent($key)['data'] ?: null;
+
+        if ($seconds > 0)
+        {
+            $time = time() + $seconds;
+        }else{
+            $time = time() - $seconds;
+        }
+
+        $content = $time.serialize($content);
+
+        return (bool)file_put_contents($path, $content);
+    }
+
     public function del($key)
     {
         $path = $this->getkeyPath($key);

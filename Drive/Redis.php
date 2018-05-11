@@ -46,6 +46,13 @@ class Redis implements Contract
         }
     }
 
+    public function expire($key, $seconds)
+    {
+        $seconds = (int)$seconds;
+
+        return (bool)$this->container->expire($this->getKeyPath($key), $seconds);
+    }
+
     public function del($key)
     {
         $this->container->delete($this->getKeyPath($key));
