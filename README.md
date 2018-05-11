@@ -38,6 +38,12 @@ $val = $cache->store()->set('getVal','33');
 
 $val = $cache->store()->get('getVal');
 
+3分钟过期
+$val = $cache->store()->expire('getVal',33);
+
+33秒钟过期
+$val = $cache->store()->expire('getVal',33,1);
+
 $val = $cache->store()->del('getVal');
 
 $val = $cache->store()->increment('getVal');
